@@ -156,7 +156,7 @@ app.get('/products', (req, res) => {
 // Route to handle writing order data
 app.post('/products',(req, res) => {
   const rangex = "Products"
-  console.log(req.body)
+  
   const id = req.body.id;
   const title = req.body.title;
   const category = req.body.category;
@@ -176,19 +176,21 @@ app.post('/products',(req, res) => {
 });
 app.post('/orders', (req, res) => {
   const rangex = "Orders"
+  console.log(req.body)
   const orderNo = req.body.orderNo ;
   const date = req.body.date ;
   const orderTotal = req.body.orderTotal ;
   const name = req.body.name ;
   const email = req.body.email ;
   const phone = req.body.phone ;
-  const address = req.body.address ;
+  const street = req.body.street ;
+  const state = req.body.state ;
   const payment = req.body.payment ;
   const shippingMethod = req.body.shippingMethod ;
   const transactionId = req.body.transactionId ;
   const products = req.body.products ;
   const note = req.body.note ;
-  const data = [orderNo	,date,	orderTotal	,products	,note	,name	,phone	,address,	email	,payment	,shippingMethod	,transactionId];
+  const data = [orderNo	,date,	orderTotal	,products	,note	,name	,phone	,street,state,	email	,payment	,shippingMethod	,transactionId];
   console.log(data)
   authorize()
     .then((auth) => postRaw(auth, data, rangex))
